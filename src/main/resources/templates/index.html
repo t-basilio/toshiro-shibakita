@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" th:href="@{css/styles.css}" href="../static/css/styles.css" />
+        <title>My Products</title>
+    </head>
+    <body>
+        <h1>SHIBAKITA SUPERMARKET</h1>
+        <input type="button" value="Add product" onclick="window.location.reload()">
+        <div class="table-container">
+            <table class="custom-table">
+                <thead>
+                    <tr>
+                        <th>Product ID</th>
+                        <th>Product Name</th>
+                        <th>Product Description</th>
+                        <th>Product Price</th>
+                        <th>Host Name</th>
+                        <th>IP Address</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="product : ${products}">
+                        <td th:text="${product.id}"></td>
+                        <td th:text="${product.name}"></td>
+                        <td th:text="${product.description}"></td>
+                        <td th:text="${product.price}"></td>
+                        <td th:text="${product.host}"></td>
+                        <td th:text="${product.ip}"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </body>
+
+</html>

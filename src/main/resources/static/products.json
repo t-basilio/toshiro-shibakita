@@ -1,0 +1,32 @@
+[
+  {
+    "name": "Arroz",
+    "description": "Arroz Branco",
+    "price": 25.50
+  },
+  {
+    "name": "Feijão",
+    "description": "Feijão Preto",
+    "price": 6.70
+  },
+  {
+    "name": "Sabão Em Pó",
+    "description": "Sabão Perfumado",
+    "price": 14.20
+  },
+  {
+  "name": "Detergente",
+  "description": "Detergente Liquido",
+  "price": 3.25
+  },
+  {
+    "name": "Café",
+    "description": "Café Torrado",
+    "price": 32.00
+  },
+  {
+    "name": "Pão Francês",
+    "description": "Kilo do pão",
+    "price": 9.89
+  }
+]
