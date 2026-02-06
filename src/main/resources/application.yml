@@ -2,7 +2,7 @@ server.port: 8080
 spring:
   application.name: toshiro-shibakita
   datasource:
-    url: jdbc:mysql://localhost/shibakita?createDatabaseIfNotExist=true&serverTimezone=UTC
+    url: jdbc:mysql://{DB_HOST:localhost}/shibakita?createDatabaseIfNotExist=true&serverTimezone=UTC
     username: root
 
   jpa:

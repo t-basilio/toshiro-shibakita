@@ -1,0 +1,43 @@
+version: '3.9'
+
+networks:
+  shibakita-network:
+    driver: bridge
+
+services:
+  shibakita-mysql:
+    image: mysql:latest
+    environment:
+      MYSQL_ALLOW_EMPTY_PASSWORD: 'yes'
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-u", "root"]
+      interval: 5s
+      timeout: 10s
+      retries: 5
+      start_period: 30s
+    ports:
+      - '3306:3306'
+    networks:
+      - shibakita-network
+
+  shibakita-api:
+    image: toshiro-shibakita:0.0.1-SNAPSHOT
+    environment:
+      DB_HOST: shibakita-mysql
+    networks:
+      - shibakita-network
+    depends_on:
+      shibakita-mysql:
+        condition: service_healthy
+    #deploy:
+      #replicas: 2
+
+  shibakita-proxy:
+    build: ./nginx
+    image: shibakita-proxy
+    ports:
+      - '80:80'
+    networks:
+      - shibakita-network
+    depends_on:
+      - shibakita-api
